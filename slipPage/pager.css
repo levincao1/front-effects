@@ -1,0 +1,177 @@
+body,div,img,span,section,ul,li,p{
+    padding:0;
+    margin:0;
+}
+a{
+    text-decoration:none;
+}
+a:focus {
+    outline:none;
+    -moz-outline:none;
+}
+html,body{
+    padding:0;
+    margin:0;
+    height:100%;
+}
+body{
+    font-size:62.5%;
+    font-family: 'microsoft yahei', 'Helvetica Neue', Verdana, Arial, Helvetica, sans-serif;
+}
+
+/***存放页面的容器 start**/
+.main{
+    width:100%;
+    height:100%;
+    position:relative;
+    overflow:hidden;
+}
+/***存放页面的容器 end**/
+
+/***必须的样式 start**/
+.page{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+}
+.section{
+    width:100%;
+    height:100%;
+    position:relative;
+    top:0;
+    left:0;
+    border:solid 1px black;
+}
+/***必须的样式 end**/
+
+/***以下可替换 start**/
+#section0{
+    background-color:grey;
+}
+#section1{
+    background-color:yellow;
+}
+#section2{
+    background-color:red;
+
+}
+#section3{
+    background-color:green;
+}
+h1{
+    text-align:center;
+    width:100px;
+    margin:50% auto 0;
+    padding:10px 0;
+    border-radius: 21px;
+    cursor:pointer;
+}
+#section0 h1{
+    background-color:rgb(208, 219, 203);
+    border:solid 1px rgb(210, 255, 0);
+    box-shadow: 1px 3px 6px #B6B89B;
+}
+
+#section1 h1{
+    background-color:rgb(208, 219, 203);
+    border:solid 1px rgb(210, 255, 0);
+    box-shadow: 1px 3px 6px #B6B89B;
+}
+
+
+#section2 h1{
+    background-color:rgb(208, 219, 203);
+    border:solid 1px rgb(210, 255, 0);
+    box-shadow: 1px 3px 6px #B6B89B;
+}
+
+#section3 h1{
+    background-color:rgb(208, 219, 203);
+    border:solid 1px rgb(210, 255, 0);
+    box-shadow: 1px 3px 6px #B6B89B;
+}
+/*动画结束状态类名*/
+.txt-end-pos{
+    -webkit-transform:translate3d(0,-100%,0);
+}
+.normal-animate-end{
+    -webkit-transform:translate3d(0,0,0);
+}
+/*动画类名*/
+.rubberBand {
+    -webkit-animation:rubberBand 1s;
+    animation-name: rubberBand 1s;
+    -webkit-animation-iteration-count:3;
+}
+
+.top-float{
+    -webkit-animation:topFloat 3s linear;
+    animation-name:topFloat;
+    -webkit-backface-visibility:hidden;
+}
+.left-float{
+    -webkit-animation:leftFloat 0.8s linear;
+    animation-name:leftFloat;
+    -webkit-backface-visibility:hidden;
+}
+.right-float{
+    -webkit-animation:rightFloat 0.8s linear;
+    animation-name:rightFloat;
+    -webkit-backface-visibility:hidden;
+}
+
+/*动画keyframes*/
+@-webkit-keyframes rubberBand {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0) scale3d(.75, .75, .75);
+    }
+
+    50% {
+        -webkit-transform: translate3d(0, 0, 0) scale3d(1.2, 1.2, 1.2);
+    }
+
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes topFloat {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(0, -100%, 0);
+    }
+}
+@-webkit-keyframes rightFloat {
+    0% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+@-webkit-keyframes leftFloat {
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes flash {
+    0% {
+        opacity:1.0;
+    }
+    50% {
+        opacity:.4
+    }
+    100% {
+        opacity:1.0;
+    }
+}
+
+/***以下可替换 end**/

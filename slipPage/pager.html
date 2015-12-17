@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>全屏翻页</title>
+    <link rel="stylesheet" href="pager.css">
+    <script type="text/javascript" src="zepto.min.js"></script>
+    <script type="text/javascript" src="$touch.js"></script>
+    <script type="text/javascript" src="plugin.slipPage3d.js"></script>
+</head>
+<body>
+
+    <!--存放页面的容器-->
+    <div id="main" class="main">
+
+    </div>
+<script type="text/javascript">
+    //页面中的场景对象参数（可以理解为每页的htm->内容；initial->初始页面方法，可以处理页面内容 添加页面节点事件等；animation->页面展示时内部的动画，或动画结束事件；）
+    var scenes = [{
+        //页面内容
+        htm:'<h1 class="title">first page</h1>',
+        //页面初始化方法
+        initial:function(){
+            var $h1 = $('#section0').find('h1');
+            $h1.on('click',function(){
+                alert("what's up man?");
+            });
+        },
+        //页面显示时执行动画或动画结束事件
+        animation:function(){
+            var $h1 = $('#section0').find('h1');
+            $h1.addClass('rubberBand');
+            $h1.bind('webkitAnimationEnd',function(){
+                $(this).removeClass('rubberBand').addClass('normal-animate-end');
+            });
+        }
+    },{
+        htm:'<h1 class="title">second page</h1><div class="content"><div></div></div>',
+        initial:function(){
+            var $h1 = $('#section1').find('h1');
+            $h1.on('click',function(){
+                alert("why click me?");
+            });
+        },
+        animation:function(){
+            var $h1 = $('#section1').find('h1');
+            $h1.addClass('top-float');
+            $h1.bind('webkitAnimationEnd',function(){
+                $(this).removeClass('top-float').addClass('normal-animate-end');
+            });
+        }
+    },{
+        htm:'<h1 class="title">third page</h1><div class="content"><div></div></div>',
+        initial:function(){
+            var $h1 = $('#section2').find('h1');
+            $h1.on('click',function(){
+                alert("All right,you are the best!");
+            });
+        },
+        animation:function(){
+            var $h1 = $('#section2').find('h1');
+            $h1.addClass('left-float');
+            $h1.bind('webkitAnimationEnd',function(){
+                $(this).removeClass('left-float').addClass('normal-animate-end');
+            });
+        }
+    },{
+        htm:'<h1 class="title">forth page</h1><div class="content"><div></div></div>',
+        initial:function(){
+            var $h1 = $('#section3').find('h1');
+            $h1.on('click',function(){
+                alert("Let's try it!");
+            });
+        },
+        animation:function(){
+            var $h1 = $('#section3').find('h1');
+            $h1.addClass('right-float');
+            $h1.bind('webkitAnimationEnd',function(){
+                $(this).removeClass('right-float').addClass('normal-animate-end');
+            });
+        }
+    }];
+    var wrapObj = document.querySelector('div#main');
+    //wrapObj:容器；scenes页面对象数组；true:是否循环翻页；0:从第几页开始翻页
+    plugin.slipPage(wrapObj,scenes,true,0);
+</script>
+</body>
+</html>
